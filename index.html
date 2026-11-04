@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حنّة ديالا</title>
+    <meta name="description" content="Wedding Invitation">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://touch-invetation.github.io/wedding-invetation/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Invitation" />
+    <meta property="og:description" content="Wedding Invitation" />
+    <meta property="og:image" content="https://touch-invetation.github.io/wedding-invetation/invite.png" />
+    <meta property="og:image:secure_url" content="https://touch-invetation.github.io/wedding-invetation/letter.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:domain" content="touch-invetation.github.io" />
+    <meta property="twitter:url" content="https://touch-invetation.github.io/wedding-invetation/" />
+    <meta name="twitter:title" content="Invitation" />
+    <meta name="twitter:description" content="Wedding Invitation" />
+    <meta name="twitter:image" content="https://touch-invetation.github.io/wedding-invetation/letter.png" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="no-scroll">
+    <!-- حاوية القلوب المتساقطة -->
+    <!-- <div id="hearts-container"></div> -->
+
+    <!-- صفحة الترحيب الأوليّة -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-wreath">
+            <div class="wreath-flowers">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:0deg;--r:165deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:30deg;--r:77deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:60deg;--r:202deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:90deg;--r:333deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:120deg;--r:24deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:150deg;--r:37deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:180deg;--r:274deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:210deg;--r:48deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:240deg;--r:187deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:270deg;--r:298deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:300deg;--r:29deg">
+                <img class="wf big" src="./poppy.png" alt="" style="--a:330deg;--r:259deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:15deg;--r:109deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:45deg;--r:19deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:75deg;--r:44deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:105deg;--r:222deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:135deg;--r:214deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:165deg;--r:35deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:195deg;--r:123deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:225deg;--r:46deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:255deg;--r:282deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:285deg;--r:217deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:315deg;--r:30deg">
+                <img class="wf small" src="./flower-small.png" alt="" style="--a:345deg;--r:289deg">
+            </div>
+            <div class="welcome-circle" onclick="enterInvitation()">
+                <div class="welcome-text">
+                    <h2>حنّة ديالا</h2>
+                </div>
+                <p class="click-hint">اضغط للدخول إلى الدعوة</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wedding">
+        <!-- Slide 1 -->
+        <div class="contain s1">
+            <div class="slide-1">
+                <div class="content reveal">
+                    <div class="s1-text">
+                        <p class="s1-intro">يا جابلات الحنا صفّوا الطوايل<br>جينا نحنّي العروس بنت الأصايل</p>
+                        <h1 class="s1-names">حنّة ديالا</h1>
+                    </div>
+                </div>
+                <img class="s1-art" src="./bride-mother.png" alt="العروس ووالدتها">
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide-2">
+            <div class="contain reveal">
+                <div class="s2-verse">
+                    <div class="s2-bayt"><span>أهلاً بمن لبّى الدعوة وحضر</span><span>في ليلةٍ زانَ فيها السعدُ والقمر</span></div>
+                    <div class="s2-bayt"><span>دعوةٌ من قلبِ أمٍّ تدعو لكم بالخير</span><span>لتشاركوها فرحة العمر وجمال السهر</span></div>
+                </div>
+                <img class="s2-heart" src="./2ec5b0129d5e0fd4f59b4b5f559b92cd-removebg-preview.png" alt="">
+                <p class="s2-quote">«كُنت أرقبُ كِبرَها يوماً فيوم، واليوم أزفّها طيرًا إلى عشه السعيد.. تُسعدني مشاركتكم فرحتي بابنتي الغالية.»</p>
+                <div class="divider"></div>
+                <p class="s2-host">تتشرف السيدة<span class="s2-mom">منال الزير</span>بدعوتكم لحنّة ابنتها <b>ديالا</b></p>
+                <p class="s2-date">السبت <bdi dir="ltr">21-11-2026</bdi><br>الساعة 7:30 مساءً</p>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide-4">
+            <div class="contain reveal calendar-card-leaves">
+                <p class="sec-title">موعد الحنّة</p>
+                <div class="calendar-widget" lang="en" dir="ltr">
+                    <div class="calendar-header">
+                        <h2 class="calendar-month">November</h2>
+                        <span class="calendar-year">2026</span>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <!-- أيام الأسبوع (7 أيام) -->
+                        <div class="day-name">Su</div>
+                        <div class="day-name">Mo</div>
+                        <div class="day-name">Tu</div>
+                        <div class="day-name">We</div>
+                        <div class="day-name">Th</div>
+                        <div class="day-name">Fr</div>
+                        <div class="day-name">Sa</div>
+
+                        <!-- 1 نوفمبر 2026 يوافق يوم أحد -->
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day special-heart">
+                            21
+                            <svg class="heart-svg" viewBox="0 0 100 100">
+                                <path
+                                    d="M50,85 C20,60 5,45 5,30 C5,15 17,5 32,5 C42,5 50,15 50,15 C50,15 58,5 68,5 C83,5 95,15 95,30 C95,45 80,60 50,85 Z"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" />
+                            </svg>
+                        </div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                    </div>
+                </div>
+
+                <!-- أزرار الإضافات الجديدة (التقويم وتأكيد الحضور) -->
+                <div class="extra-actions">
+                    <button class="action-btn" onclick="addToCalendar()">
+                        <i class="bi bi-calendar-plus"></i> احفظ الموعد
+                    </button>
+                    <!-- <button class="action-btn" data-bs-toggle="modal" data-bs-target="#rsvpModal">
+                        <i class="bi bi-check2-circle"></i> تأكيد الحضور (RSVP)
+                    </button> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="slide-4 5">
+            <div class="contain reveal">
+                <div class="countdown-container">
+                    <h3>COUNTDOWN</h3>
+                    <div class="countdown-timer">
+                        <div class="time-box"><span id="days">00</span><span class="label">أيام</span></div>
+                        <div class="time-box"><span id="hours">00</span><span class="label">ساعات</span></div>
+                        <div class="time-box"><span id="minutes">00</span><span class="label">دقائق</span></div>
+                        <div class="time-box"><span id="seconds">00</span><span class="label">ثواني</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide-3">
+            <div class="contain reveal location-card-flowers">
+                <p><span class="sec-title">الموقع</span><br>فندق هوليداي إن الشارقة<br>قاعة الدانا<br>الشارقة - الإمارات<br><br>
+                    <iframe
+                        src="https://www.google.com/maps?q=Holiday+Inn+Sharjah&output=embed"
+                        width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </p>
+            </div>
+        </div>
+
+
+        <!-- قسم صورة العروسين (الأخير) -->
+        <div class="slide-couple">
+            <div class="s3-text reveal">
+                <p class="s3-line">فِي لَيْلَةٍ تُعْزَفُ فِيهَا أَلْحَانُ الفَرَح... نَبْتَدِئُ الحَيَاةَ مَعاً</p>
+                <p class="s3-name">حنّة ديالا</p>
+                <p class="s3-date"><bdi dir="ltr">21.11.2026</bdi></p>
+                <p class="s3-heart">❤</p>
+            </div>
+            <img class="s3-art" src="./couple.png" alt="العروس والعريس">
+        </div>
+    </div>
+
+    <!-- زر الموسيقى مع موجات الصوت المتحركة -->
+    <button id="musicToggleBtn" class="music-toggle-btn" onclick="toggleMusic()" aria-label="تحكم بالموسيقى">
+        <div id="musicEqualizer" class="equalizer paused-eq">
+            <span></span><span></span><span></span>
+        </div>
+        <i id="musicIcon" class="bi bi-volume-mute-fill"></i>
+    </button>
+
+    <!-- مشغل يوتيوب مخفي للموسيقى -->
+    <div style="display: none;">
+        <iframe id="youtubeAudio"
+            src="https://www.youtube.com/embed/qNvJnYLaT5s?enablejsapi=1&autoplay=0&loop=1&playlist=qNvJnYLaT5s"
+            allow="autoplay"></iframe>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+<script>
+    // ضبط سطر الجملة الأخيرة ليبقى بسطر واحد مهما كان عرض الخط
+    function fitLine() {
+        const el = document.querySelector('.s3-line');
+        if (!el) return;
+        el.style.fontSize = '';
+        let size = parseFloat(getComputedStyle(el).fontSize);
+        while (el.scrollWidth > el.parentElement.clientWidth && size > 9) {
+            size -= 0.5;
+            el.style.fontSize = size + 'px';
+        }
+    }
+    window.addEventListener('load', fitLine);
+    window.addEventListener('resize', fitLine);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLine);
+
+    let isMusicPlaying = false;
+
+    // دالة الدخول الشاملة
+    function enterInvitation() {
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        if (welcomeOverlay) {
+            welcomeOverlay.classList.add('fade-out');
+            document.body.classList.remove('no-scroll');
+
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 500);
+
+            const video = document.querySelector('.slide-1 video');
+            if (video) {
+                video.play().catch(err => console.log(err));
+            }
+
+            playYouTubeAudio();
+            startHeartRain(); // بدء القلوب المتساقطة
+        }
+
+        setTimeout(() => {
+            startAutoScroll();
+        }, 800);
+    }
+
+    // تشغيل وإيقاف الموسيقى مع تحديث الموجات الصوتية
+    function playYouTubeAudio() {
+        const ytIframe = document.getElementById('youtubeAudio');
+        const icon = document.getElementById('musicIcon');
+        const eq = document.getElementById('musicEqualizer');
+        if (ytIframe) {
+            ytIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            isMusicPlaying = true;
+            if (icon) icon.className = 'bi bi-music-note-beamed';
+            if (eq) eq.classList.remove('paused-eq');
+        }
+    }
+
+    function pauseYouTubeAudio() {
+        const ytIframe = document.getElementById('youtubeAudio');
+        const icon = document.getElementById('musicIcon');
+        const eq = document.getElementById('musicEqualizer');
+        if (ytIframe) {
+            ytIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            isMusicPlaying = false;
+            if (icon) icon.className = 'bi bi-volume-mute-fill';
+            if (eq) eq.classList.add('paused-eq');
+        }
+    }
+
+    function toggleMusic() {
+        if (isMusicPlaying) {
+            pauseYouTubeAudio();
+        } else {
+            playYouTubeAudio();
+        }
+    }
+
+    // تأثير القلوب المتساقطة
+    function startHeartRain() {
+        const container = document.getElementById('hearts-container');
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('falling-heart');
+            heart.innerHTML = '𔓘';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }, 400);
+    }
+
+    // الظهور التدريجي للعناصر أثناء التمرير (Scroll Reveal)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // زر إضافة الموعد للتقويم
+    function addToCalendar() {
+        const title = "حنّة ديالا";
+        const details = "تدعوكم والدة العروس منال الزير إلى حنّة ابنتها ديالا";
+        const location = "فندق هوليداي إن الشارقة، قاعة الدانا، الشارقة، الإمارات العربية المتحدة";
+        const startTime = "20261121T193000";
+        const endTime = "20261121T230000";
+
+        const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&dates=${startTime}/${endTime}`;
+        window.open(googleUrl, '_blank');
+    }
+
+    // عداد الوقت التنازلي
+    const targetDate = new Date("November 21, 2026 19:30:00").getTime();
+    const countdown = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        if (distance < 0) {
+            clearInterval(countdown);
+        }
+    }, 1000);
+
+    // التمرير التلقائي السلس مع الإيقاف الذكي عند تدخل المستخدم
+    let animationFrameId = null;
+    let isAutoScrolling = false;
+    let scrollSpeed = 1.8; // سرعة التمرير
+
+    function step() {
+        if (!isAutoScrolling) return;
+
+        window.scrollBy(0, scrollSpeed);
+
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+            stopAutoScroll();
+            return;
+        }
+
+        animationFrameId = requestAnimationFrame(step);
+    }
+
+    function startAutoScroll() {
+        if (isAutoScrolling) return;
+        isAutoScrolling = true;
+        step();
+    }
+
+    function stopAutoScroll() {
+        if (isAutoScrolling) {
+            isAutoScrolling = false;
+            cancelAnimationFrame(animationFrameId);
+        }
+    }
+
+    window.addEventListener('wheel', () => stopAutoScroll(), { passive: true });
+    window.addEventListener('touchstart', () => stopAutoScroll(), { passive: true });
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowDown', 'ArrowUp', 'Space', 'PageDown', 'PageUp'].includes(e.code)) {
+            stopAutoScroll();
+        }
+    });
+</script>
+
+
+</html>

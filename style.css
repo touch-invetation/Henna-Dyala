@@ -1,0 +1,1141 @@
+:root {
+  --slide-color: #753b3e;
+  --primary-color: #721a22;
+  --primary-dark: #721a22;
+  --bg-color: #fdfcf7;
+  --text-color: #753b3e;
+  --text-muted: #753b3e;
+  --border-color: #d4cfbe;
+  --white: #ffffff;
+  --overlay-bg: rgba(0, 0, 0, 0.46);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+.welcome-overlay {
+  direction: rtl;
+  font-family: "Amiri", serif;
+}
+
+.wedding {
+  color: var(--slide-color);
+  background: url("./bg-linen.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Amiri", serif;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.slide-1 {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.familyName {
+  font-size: 120px;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+    position: relative;
+}
+
+.ms{
+      position: relative;
+    right: 9px;
+    top: 39px;
+}
+
+.mr{
+  position: relative;
+    left: 18px;
+}
+
+.timeWedding {
+  font-size: 16px;
+  display: flex;
+  gap: 30px;
+}
+
+.icon {
+  padding: 6px;
+  font-size: 20px;
+}
+
+
+
+
+
+/* الحاويات العامة */
+.contain {
+  text-align: center;
+  margin: 40px 20px;
+  padding: 30px 20px;
+  font-size: 18px;
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.slide-2 .contain{
+    backdrop-filter: blur(0px);
+}
+
+.contain div {
+  margin-bottom: 12px;
+}
+
+.slide-2 {
+  background-image: url("./download__5_.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 410px) {
+  .slide-2 {
+    background-size: cover;
+    background-position: center;
+  }
+
+}
+
+iframe {
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+/* بطاقة التقويم */
+.calendar-card {
+  background: var(--bg-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  position: relative;
+  margin: 30px auto;
+  max-width: 320px;
+}
+
+.calendar-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 25px 20px 15px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.binder-rings {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 114px;
+}
+
+.binder-rings span {
+  width: 15px;
+  height: 20px;
+  background: var(--primary-dark);
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-header .day-name,
+.calendar-header .year {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.calendar-header .month-name {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.calendar-body {
+  padding: 25px 20px;
+  color: var(--text-color);
+}
+
+.day-number {
+  font-size: 75px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border-color);
+  margin: 0 auto 15px;
+}
+
+.sub-date {
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.time {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* العد التنازلي */
+.countdown-container {
+  text-align: center;
+      background: #721a22;
+    color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 350px;
+  margin: 20px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-container h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 60px;
+}
+
+.time-box span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.time-box .label {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.timeline-container {
+  padding: 30px 40px 30px 20px; /* ترك مساحة على اليمين لشريط الدانتيل */
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 520px;
+  position: relative;
+  overflow: hidden; /* لقص الدانتيل داخل حدود البطاقة بدقة */
+}
+
+.timeline-title {
+  color: var(--text-color, #333);
+  margin-bottom: 25px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+      padding: 10px 36px 10px 0;
+}
+
+/* شريط الدانتيل ملتصق تماماً بالطرف الأيمن للبطاقة */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  bottom: -45px;
+  right: -40px; /* يلتصق بحافة الحاوية تماماً */
+  width: 70px; /* عرض شريط الدانتيل */
+  background: url('./download__7_.png') repeat-y center;
+  background-size: contain;
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 18px;
+  width: 100%;
+  z-index: 2; /* لضمان ظهور الكروت فوق الخلفية */
+}
+
+/* تصميم الكرت الأبيض لكل فقرة */
+.timeline-card {
+  background: #721a22;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* ووقت الفعالية بتصميم أنيق */
+.timeline-item .time {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(197, 168, 128, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* وصف الحدث */
+.timeline-item .event-desc {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* قسم الرسائل والتهاني */
+.wishes-container {
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.wishes-title {
+  color: var(--text-color);
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.wishes-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.wishes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(74, 66, 44, 0.2);
+  background: var(--white);
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* التهاني المعروضة */
+.wishes-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.wish-card {
+  background: var(--white);
+  border: 1px solid #e8e4d8;
+  border-radius: 12px;
+  padding: 12px 15px;
+  text-align: right;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.wish-author {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.wish-text {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.slide-7 {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/* صفحة الترحيب الأوليّة */
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.welcome-circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  /* background-image: url("./54c0a3ecce81e0173a92e88018e2fed6-removebg-preview.png"); */
+  background: rgba(253, 252, 247, 0.95);
+  border: 2px solid var(--primary-color);
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.2),
+    inset 0 0 15px rgba(74, 66, 44, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px;
+  animation: pulseCircle 2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.welcome-circle:hover {
+  transform: scale(1.05);
+}
+
+.welcome-text h2 {
+  color:#721a22;
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.welcome-text span {
+  color: #721a22;
+  font-size: 20px;
+  display: block;
+  margin: 4px 0;
+}
+
+.click-hint {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #721a22;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulseCircle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(253, 252, 247, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(253, 252, 247, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 252, 247, 0);
+  }
+}
+
+.welcome-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* زر الموسيقى والموجات الصوتية */
+.music-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 1000;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(253, 252, 247, 0.9);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  transition:
+    transform 0.2s ease,
+    background 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--white);
+}
+
+/* تأثير الظهور التدريجي (Scroll Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* حاوية القلوب المتساقطة */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+.falling-heart {
+  position: absolute;
+  top: -10px;
+  color: rgba(255, 182, 193, 0.8);
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* أزرار الإضافات الجديدة (التقويم وتأكيد الحضور) */
+.extra-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.action-btn {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  align-items: center;
+  font-family: inherit;
+}
+.action-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+/* أيقونة الموجات الصوتية المتحركة */
+.equalizer {
+  display: inline-flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 12px;
+  margin-left: 5px;
+}
+.equalizer span {
+  width: 2.5px;
+  background: var(--primary-color);
+  animation: bounce 0.6s infinite alternate;
+  border-radius: 1px;
+}
+.equalizer span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.equalizer span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes bounce {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 12px;
+  }
+}
+.paused-eq span {
+  animation-play-state: paused;
+  height: 3px !important;
+}
+
+.calendar-widget {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1a1a1a;
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .calendar-month {
+    font-size: 28px;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  .calendar-year {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #444;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 أعمدة لأيام الأسبوع */
+    gap: 12px 6px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .day-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .calendar-day {
+    font-size: 15px;
+    color: #222;
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .empty {
+    visibility: hidden;
+  }
+
+  .special-heart {
+    position: relative;
+    font-weight: 500;
+  }
+
+  .heart-svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    pointer-events: none;
+    color: #222;
+  }
+
+
+  .imgCorner{
+        position: absolute;
+    bottom: -31px;
+    left: -20px;
+  }
+
+  #totalAttendeesCount {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #721a22;
+    border-radius: 8px;
+    margin: 5px;
+    color: #ffffff;
+  }
+
+  .attendance-counter{
+    display: flex;
+    flex-direction: column;
+  }
+
+/* ===== الصفحة الأولى (الغلاف) ===== */
+.contain.s1 {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  font-size: inherit;
+  background: url("./bg-first.jpg") no-repeat center top / 100% 100%;
+  aspect-ratio: 675 / 1200; /* حد أدنى للطول، ويكبر لو النص أطول */
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+}
+
+.s1 .slide-1 {
+  flex: 1;
+  margin-bottom: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  min-height: min-content;
+}
+
+.s1 .content {
+  position: static;
+  width: 60%;
+  height: auto;
+  margin: 28% auto 16px 3%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.s1-text {
+  color: #721a22;
+  text-align: center;
+}
+
+.s1-intro {
+  font-size: clamp(12px, 3.4vw, 18px);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.s1-host {
+  font-size: clamp(12px, 3.4vw, 17px);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.s1-bride {
+  display: block;
+  font-size: clamp(54px, 17vw, 100px);
+  font-weight: bold;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.s1 .timeWedding {
+  justify-content: center;
+  gap: 24px;
+  font-size: clamp(12px, 3.2vw, 16px);
+}
+
+.s1-art {
+  display: block;
+  width: 84%;
+  height: auto;
+  margin: auto auto -1px -5%;
+  pointer-events: none;
+}
+
+.s1-names {
+  font-size: clamp(54px, 17vw, 100px);
+  line-height: 1.3;
+  margin: 0;
+}
+
+
+/* ===== الصفحة الثانية ===== */
+.slide-2 {
+  background-image: url("./bg-second.jpg");
+  background-size: 100% 100%;
+  aspect-ratio: 1152 / 2048;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: clip;
+}
+
+.slide-2 .contain {
+  margin: 0 36px;
+  padding: 0 8px 40px;
+  box-shadow: none;
+  background: none;
+}
+
+.s2-verse {
+  font-size: clamp(15px, 4.4vw, 20px);
+  line-height: 2.3;
+  font-weight: bold;
+}
+
+.s2-heart {
+  display: block;
+  width: 56px;
+  margin: 18px auto;
+}
+
+.s2-quote {
+  font-size: clamp(13px, 3.8vw, 17px);
+  line-height: 2;
+}
+
+.s2-host {
+  font-size: clamp(16px, 4.8vw, 22px);
+  line-height: 2;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.s2-host b {
+  font-size: 1.5em;
+}
+
+.slide-2 .s2-verse {
+  margin-bottom: 0;
+}
+
+.slide-2 .s2-bayt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: clamp(13px, 3.8vw, 17px);
+  line-height: 2;
+  font-weight: bold;
+}
+
+.s2-bayt span {
+  padding: 0 8px;
+}
+
+.s2-bayt span + span {
+  border-right: 1px solid rgba(117, 59, 62, 0.35);
+}
+
+.s2-date {
+  font-size: clamp(14px, 4.2vw, 19px);
+  line-height: 1.9;
+  font-weight: bold;
+}
+
+.slide-2 .contain {
+  padding-top: 24px;
+}
+
+.slide-2 .s2-host {
+  margin-bottom: 10px;
+  font-size: clamp(15px, 4.4vw, 20px);
+}
+
+.slide-2 .s2-heart {
+  margin: 8px auto;
+  width: 46px;
+}
+
+.slide-2 .divider {
+  margin: 12px auto;
+}
+
+.slide-2 .contain {
+  margin: 0 56px;
+  width: calc(100% - 112px);
+}
+
+
+/* ===== قسم صورة العروسين ===== */
+.slide-couple {
+  background: url("./bg-third.jpg") no-repeat center top / 100% 100%;
+  aspect-ratio: 1152 / 2048;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+
+.s3-text {
+  margin: 20% 8px 0;
+  text-align: center;
+  color: #721a22;
+  font-weight: bold;
+}
+
+.s3-line {
+  white-space: nowrap;
+  font-size: clamp(11px, 4.3vw, 20px);
+  line-height: 2;
+}
+
+.s3-name {
+  font-size: clamp(30px, 9vw, 52px);
+  line-height: 1.5;
+  margin-top: 18px;
+}
+
+.s3-date {
+  font-size: clamp(16px, 5vw, 26px);
+  line-height: 1.6;
+}
+
+.s3-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+}
+
+.s3-heart {
+  font-size: clamp(20px, 6vw, 30px);
+  line-height: 1.4;
+}
+
+
+/* ===== أوراق الشجر على بطاقة التقويم ===== */
+.calendar-card-leaves {
+  position: relative;
+}
+
+.calendar-card-leaves::before,
+.calendar-card-leaves::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.calendar-card-leaves::before {
+  top: -8px;
+  right: -6px;
+  width: 30%;
+  aspect-ratio: 292 / 333;
+  background-image: url("./leaf-tr.png");
+}
+
+.calendar-card-leaves::after {
+  bottom: -8px;
+  left: -6px;
+  width: 32%;
+  aspect-ratio: 397 / 336;
+  background-image: url("./leaf-bl.png");
+}
+
+.calendar-card-leaves > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ===== ورد على أطراف بطاقة الموقع ===== */
+.location-card-flowers {
+  position: relative;
+  overflow: hidden;
+}
+
+.location-card-flowers::before,
+.location-card-flowers::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.location-card-flowers::before {
+  top: 0;
+  right: 0;
+  width: 24%;
+  aspect-ratio: 260 / 377;
+  background-image: url("./blossom-tr.png");
+}
+
+.location-card-flowers::after {
+  bottom: 0;
+  left: 0;
+  width: 32%;
+  aspect-ratio: 300 / 514;
+  background-image: url("./blossom-bl.png");
+}
+
+
+/* عناوين الأقسام */
+.sec-title {
+  font-size: clamp(28px, 8.5vw, 42px);
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+span.sec-title {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.s2-mom {
+  display: block;
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+
+.slide-2 .s2-bayt { margin-bottom: 6px; }
+.s2-mom { line-height: 1.3; }
+.slide-2 .s2-host { margin-bottom: 4px; line-height: 1.8; }
+
+/* الصفحة الأولى: الأغنية أكبر، وحنّة ديالا بسطر واحد */
+.s1-intro {
+  font-size: clamp(14px, 4.6vw, 25px);
+  line-height: 1.9;
+}
+
+.s1-names {
+  font-size: clamp(40px, 14vw, 80px);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.s1-names {
+  margin-top: 45px;
+}
+
+
+/* ===== شاشة الدخول: خلفية بيج + دائرة مرتبة + ورد حولها ===== */
+.welcome-overlay {
+  background: url("./bg-linen.jpg") no-repeat center center / cover;
+  backdrop-filter: none;
+}
+
+.welcome-wreath {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.welcome-wreath .welcome-circle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background: rgba(253, 252, 247, 0.97);
+  border: 2px solid var(--primary-color);
+  box-shadow:
+    0 0 0 7px rgba(253, 252, 247, 0.97),
+    0 0 0 8px var(--primary-color),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: none;
+  z-index: 2;
+}
+
+.welcome-wreath .welcome-text h2 {
+  font-size: 44px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.wreath-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  animation: wreathBreathe 4s ease-in-out infinite;
+}
+
+.wf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--a))
+    translateY(-142px)
+    rotate(var(--r));
+}
+
+.wf.big { width: 50px; }
+.wf.small { width: 26px; transform:
+    translate(-50%, -50%)
+    rotate(var(--a))
+    translateY(-150px)
+    rotate(var(--r)); }
+
+@keyframes wreathBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}

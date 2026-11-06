@@ -1402,8 +1402,9 @@ body.no-scroll {
   right: -20px;
   width: 31%;
   aspect-ratio: 320 / 358;
-  background-image: url("./rose.png");
-  transform: scaleX(-1);
+  /* background-image: url("./rose.png"); */
+  background-image: url("./download1.png");
+  /* transform: scaleX(-1); */
 }
 
 .location-card-flowers::after {
@@ -1411,7 +1412,7 @@ body.no-scroll {
   left: -20px;
   width: 31%;
   aspect-ratio: 320 / 358;
-  background-image: url("./rose.png");
+  background-image: url("./download1.png");
   transform: scale(-1, -1);
 }
 
@@ -1420,15 +1421,15 @@ body.no-scroll {
 }
 
 .location-card-flowers::before {
-  top: -10px;
-  right: -12px;
-  width: 36%;
+  top: -100px;
+    right: -84px;
+    width: 64%;
 }
 
 .location-card-flowers::after {
-  bottom: -8px;
-  left: -10px;
-  width: 36%;
+  bottom: -106px;
+    left: -84px;
+    width: 64%;
 }
 
 

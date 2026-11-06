@@ -1353,3 +1353,128 @@ span.sec-title {
   aspect-ratio: 397 / 336;
   background-image: url("./leaf-bl.png");
 }
+
+
+/* شاشة الدخول تغطي الصفحة كاملة طولاً وعرضاً (حتى مع شريط المتصفح بالموبايل) */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
+  background-color: #f3efe6;
+}
+
+.door {
+  background-size: 200% 100%;
+}
+
+.cover-stage {
+  --w: min(150vw, 74vh);
+  --w: min(150vw, 74dvh);
+}
+
+body.no-scroll {
+  height: 100dvh !important;
+}
+
+
+/* آيفون: تغطية كاملة حتى تحت الجزيرة الديناميكية وشريط الصفحة السفلي */
+.welcome-overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  height: 100lvh;
+}
+
+.cover-stage {
+  --w: min(150vw, 74vh);
+  --w: min(150vw, 74svh);
+}
+
+
+/* ===== ورد جوري بدل الورد القديم في بطاقة الموقع ===== */
+.location-card-flowers::before {
+  top: -16px;
+  right: -20px;
+  width: 31%;
+  aspect-ratio: 320 / 358;
+  background-image: url("./rose.png");
+  transform: scaleX(-1);
+}
+
+.location-card-flowers::after {
+  bottom: -16px;
+  left: -20px;
+  width: 31%;
+  aspect-ratio: 320 / 358;
+  background-image: url("./rose.png");
+  transform: scale(-1, -1);
+}
+
+.location-card-flowers {
+  padding-bottom: 80px;
+}
+
+.location-card-flowers::before {
+  top: -10px;
+  right: -12px;
+  width: 36%;
+}
+
+.location-card-flowers::after {
+  bottom: -8px;
+  left: -10px;
+  width: 36%;
+}
+
+
+/* ===== الصفحة الثانية: أبيات بسطر واحد لكل شطر ===== */
+.slide-2 {
+  background-size: cover;
+  background-position: left bottom;
+  align-items: flex-start;
+  padding-top: 52%;
+  padding-bottom: 24%;
+  box-sizing: border-box;
+}
+
+.slide-2 .contain {
+  margin: 0 14px;
+  width: calc(100% - 28px);
+  padding: 0;
+}
+
+.slide-2 .s2-bayt {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  font-size: 14px;
+}
+
+.slide-2 .s2-bayt span {
+  white-space: nowrap;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.slide-2 .s2-heart {
+  margin: 10px auto;
+  width: 44px;
+}
+
+
+/* ===== الصفحة الثانية: شرشوبة صغيرة ===== */
+.slide-2 {
+  background-image: url("./bg-tassel.jpg");
+  align-items: center;
+  padding-top: 8%;
+  padding-bottom: 22%;
+  position: relative;
+}
+
+.slide-2 .contain {
+  position: relative;
+  z-index: 1;
+}

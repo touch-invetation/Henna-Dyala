@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>حنّة ديالا</title>
     <meta name="description" content="Wedding Invitation">
 
@@ -76,7 +76,7 @@
                     <div class="s2-bayt"><span>أهلاً بمن لبّى الدعوة وحضر</span><span>في ليلةٍ زانَ فيها السعدُ والقمر</span></div>
                     <div class="s2-bayt"><span>دعوةٌ من قلبِ أمٍّ تدعو لكم بالخير</span><span>لتشاركوها فرحة العمر وجمال السهر</span></div>
                 </div>
-                <img class="s2-heart" src="./2ec5b0129d5e0fd4f59b4b5f559b92cd-removebg-preview.png" alt="">
+                <img class="s2-heart" src="./heart.png" alt="">
                 <p class="s2-quote">«كُنت أرقبُ كِبرَها يوماً فيوم، واليوم أزفّها طيرًا إلى عشه السعيد.. تُسعدني مشاركتكم فرحتي بابنتي الغالية.»</p>
                 <div class="divider"></div>
                 <p class="s2-host">تتشرف السيدة<span class="s2-mom">منال الزير</span>بدعوتكم لحنّة ابنتها <b>ديالا</b></p>
@@ -205,12 +205,8 @@
         <i id="musicIcon" class="bi bi-volume-mute-fill"></i>
     </button>
 
-    <!-- مشغل يوتيوب مخفي للموسيقى -->
-    <div style="display: none;">
-        <iframe id="youtubeAudio"
-            src="https://www.youtube.com/embed/qNvJnYLaT5s?enablejsapi=1&autoplay=0&loop=1&playlist=qNvJnYLaT5s"
-            allow="autoplay"></iframe>
-    </div>
+    <!-- الموسيقى: ملف MP3 (ضعيه بجانب index.html باسم music.mp3) -->
+    <audio id="bgMusic" src="./music.mp3" loop preload="auto"></audio>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -218,6 +214,24 @@
     crossorigin="anonymous"></script>
 <script>
     // ضبط سطر الجملة الأخيرة ليبقى بسطر واحد مهما كان عرض الخط
+
+    // تصغير خط الأبيات تلقائياً حتى يبقى كل شطر بسطر واحد
+    function fitVerses() {
+        const spans = document.querySelectorAll('.s2-bayt span');
+        if (!spans.length) return;
+        const rows = document.querySelectorAll('.s2-bayt');
+        rows.forEach(r => r.style.fontSize = '');
+        let size = parseFloat(getComputedStyle(rows[0]).fontSize);
+        const overflow = () => Array.from(spans).some(s => s.scrollWidth > s.clientWidth + 0.5);
+        while (overflow() && size > 9) {
+            size -= 0.5;
+            rows.forEach(r => r.style.fontSize = size + 'px');
+        }
+    }
+    window.addEventListener('load', fitVerses);
+    window.addEventListener('resize', fitVerses);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitVerses);
+
     function fitLine() {
         const el = document.querySelector('.s3-line');
         if (!el) return;
@@ -250,7 +264,7 @@
                 video.play().catch(err => console.log(err));
             }
 
-            playYouTubeAudio();
+            playMusic();
             startHeartRain(); // بدء القلوب المتساقطة
         }
 
@@ -260,35 +274,34 @@
     }
 
     // تشغيل وإيقاف الموسيقى مع تحديث الموجات الصوتية
-    function playYouTubeAudio() {
-        const ytIframe = document.getElementById('youtubeAudio');
+    function setMusicUI(playing) {
         const icon = document.getElementById('musicIcon');
         const eq = document.getElementById('musicEqualizer');
-        if (ytIframe) {
-            ytIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            isMusicPlaying = true;
-            if (icon) icon.className = 'bi bi-music-note-beamed';
-            if (eq) eq.classList.remove('paused-eq');
-        }
+        isMusicPlaying = playing;
+        if (icon) icon.className = playing ? 'bi bi-music-note-beamed' : 'bi bi-volume-mute-fill';
+        if (eq) eq.classList.toggle('paused-eq', !playing);
     }
 
-    function pauseYouTubeAudio() {
-        const ytIframe = document.getElementById('youtubeAudio');
-        const icon = document.getElementById('musicIcon');
-        const eq = document.getElementById('musicEqualizer');
-        if (ytIframe) {
-            ytIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            isMusicPlaying = false;
-            if (icon) icon.className = 'bi bi-volume-mute-fill';
-            if (eq) eq.classList.add('paused-eq');
-        }
+    function playMusic() {
+        const audio = document.getElementById('bgMusic');
+        if (!audio) return;
+        audio.play().then(() => setMusicUI(true)).catch(err => {
+            console.log(err);
+            setMusicUI(false);
+        });
+    }
+
+    function pauseMusic() {
+        const audio = document.getElementById('bgMusic');
+        if (audio) audio.pause();
+        setMusicUI(false);
     }
 
     function toggleMusic() {
         if (isMusicPlaying) {
-            pauseYouTubeAudio();
+            pauseMusic();
         } else {
-            playYouTubeAudio();
+            playMusic();
         }
     }
 

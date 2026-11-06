@@ -213,201 +213,214 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 <script>
-    // ضبط سطر الجملة الأخيرة ليبقى بسطر واحد مهما كان عرض الخط
-
-    // تصغير خط الأبيات تلقائياً حتى يبقى كل شطر بسطر واحد
     function fitVerses() {
-        const spans = document.querySelectorAll('.s2-bayt span');
-        if (!spans.length) return;
-        const rows = document.querySelectorAll('.s2-bayt');
-        rows.forEach(r => r.style.fontSize = '');
-        let size = parseFloat(getComputedStyle(rows[0]).fontSize);
-        const overflow = () => Array.from(spans).some(s => s.scrollWidth > s.clientWidth + 0.5);
-        while (overflow() && size > 9) {
-            size -= 0.5;
-            rows.forEach(r => r.style.fontSize = size + 'px');
-        }
+    const spans = document.querySelectorAll('.s2-bayt span');
+    if (!spans.length) return;
+    const rows = document.querySelectorAll('.s2-bayt');
+    rows.forEach(r => r.style.fontSize = '');
+    let size = parseFloat(getComputedStyle(rows[0]).fontSize);
+    const overflow = () => Array.from(spans).some(s => s.scrollWidth > s.clientWidth + 0.5);
+    while (overflow() && size > 9) {
+        size -= 0.5;
+        rows.forEach(r => r.style.fontSize = size + 'px');
     }
-    window.addEventListener('load', fitVerses);
-    window.addEventListener('resize', fitVerses);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitVerses);
-
-    function fitLine() {
-        const el = document.querySelector('.s3-line');
-        if (!el) return;
-        el.style.fontSize = '';
-        let size = parseFloat(getComputedStyle(el).fontSize);
-        while (el.scrollWidth > el.parentElement.clientWidth && size > 9) {
-            size -= 0.5;
-            el.style.fontSize = size + 'px';
-        }
+}
+window.addEventListener('load', fitVerses);
+window.addEventListener('resize', fitVerses);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitVerses);
+ 
+// ضبط سطر الجملة الأخيرة ليبقى بسطر واحد مهما كان عرض الخط
+function fitLine() {
+    const el = document.querySelector('.s3-line');
+    if (!el) return;
+    el.style.fontSize = '';
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.parentElement.clientWidth && size > 9) {
+        size -= 0.5;
+        el.style.fontSize = size + 'px';
     }
-    window.addEventListener('load', fitLine);
-    window.addEventListener('resize', fitLine);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLine);
-
-    let isMusicPlaying = false;
-
-    // دالة الدخول الشاملة
-    function enterInvitation() {
-        const welcomeOverlay = document.getElementById('welcome-overlay');
-        if (welcomeOverlay) {
-            welcomeOverlay.classList.add('fade-out');
-            document.body.classList.remove('no-scroll');
-
-            setTimeout(() => {
-                welcomeOverlay.style.display = 'none';
-            }, 2800);
-
-            const video = document.querySelector('.slide-1 video');
-            if (video) {
-                video.play().catch(err => console.log(err));
-            }
-
-            playMusic();
-            startHeartRain(); // بدء القلوب المتساقطة
-        }
-
+}
+window.addEventListener('load', fitLine);
+window.addEventListener('resize', fitLine);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLine);
+ 
+let isMusicPlaying = false;
+ 
+// دالة الدخول الشاملة
+function enterInvitation() {
+    const welcomeOverlay = document.getElementById('welcome-overlay');
+    if (welcomeOverlay) {
+        welcomeOverlay.classList.add('fade-out');
+        document.body.classList.remove('no-scroll');
+        window.scrollTo(0, 0); // تعديل: إعادة ضبط التمرير بعد فك القفل (سفاري)
+ 
         setTimeout(() => {
-            startAutoScroll();
-        }, 800);
+            welcomeOverlay.style.display = 'none';
+        }, 2800);
+ 
+        const video = document.querySelector('.slide-1 video');
+        if (video) {
+            video.play().catch(err => console.log(err));
+        }
+ 
+        playMusic();
+        startHeartRain(); // بدء القلوب المتساقطة
     }
-
-    // تشغيل وإيقاف الموسيقى مع تحديث الموجات الصوتية
-    function setMusicUI(playing) {
-        const icon = document.getElementById('musicIcon');
-        const eq = document.getElementById('musicEqualizer');
-        isMusicPlaying = playing;
-        if (icon) icon.className = playing ? 'bi bi-music-note-beamed' : 'bi bi-volume-mute-fill';
-        if (eq) eq.classList.toggle('paused-eq', !playing);
-    }
-
-    function playMusic() {
-        const audio = document.getElementById('bgMusic');
-        if (!audio) return;
-        audio.play().then(() => setMusicUI(true)).catch(err => {
-            console.log(err);
-            setMusicUI(false);
-        });
-    }
-
-    function pauseMusic() {
-        const audio = document.getElementById('bgMusic');
-        if (audio) audio.pause();
+ 
+    setTimeout(() => {
+        startAutoScroll();
+    }, 3000);
+}
+ 
+// تشغيل وإيقاف الموسيقى مع تحديث الموجات الصوتية
+function setMusicUI(playing) {
+    const icon = document.getElementById('musicIcon');
+    const eq = document.getElementById('musicEqualizer');
+    isMusicPlaying = playing;
+    if (icon) icon.className = playing ? 'bi bi-music-note-beamed' : 'bi bi-volume-mute-fill';
+    if (eq) eq.classList.toggle('paused-eq', !playing);
+}
+ 
+function playMusic() {
+    const audio = document.getElementById('bgMusic');
+    if (!audio) return;
+    audio.play().then(() => setMusicUI(true)).catch(err => {
+        console.log(err);
         setMusicUI(false);
+    });
+}
+ 
+function pauseMusic() {
+    const audio = document.getElementById('bgMusic');
+    if (audio) audio.pause();
+    setMusicUI(false);
+}
+ 
+function toggleMusic() {
+    if (isMusicPlaying) {
+        pauseMusic();
+    } else {
+        playMusic();
     }
-
-    function toggleMusic() {
-        if (isMusicPlaying) {
-            pauseMusic();
-        } else {
-            playMusic();
-        }
-    }
-
-    // تأثير القلوب المتساقطة
-    function startHeartRain() {
-        const container = document.getElementById('hearts-container');
-        if (!container) return; // القلوب المتساقطة معطلة
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.classList.add('falling-heart');
-            heart.innerHTML = '𔓘';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
-            container.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
-        }, 400);
-    }
-
-    // الظهور التدريجي للعناصر أثناء التمرير (Scroll Reveal)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // زر إضافة الموعد للتقويم
-    function addToCalendar() {
-        const title = "حنّة ديالا";
-        const details = "تدعوكم والدة العروس منال الزير إلى حنّة ابنتها ديالا";
-        const location = "فندق هوليداي إن الشارقة، قاعة الدانا، الشارقة، الإمارات العربية المتحدة";
-        const startTime = "20261121T193000";
-        const endTime = "20261121T230000";
-
-        const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&dates=${startTime}/${endTime}`;
-        window.open(googleUrl, '_blank');
-    }
-
-    // عداد الوقت التنازلي
-    const targetDate = new Date("November 21, 2026 19:30:00").getTime();
-    const countdown = setInterval(function () {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-        }
-
-        if (distance < 0) {
-            clearInterval(countdown);
-        }
-    }, 1000);
-
-    // التمرير التلقائي السلس مع الإيقاف الذكي عند تدخل المستخدم
-    let animationFrameId = null;
-    let isAutoScrolling = false;
-    let scrollSpeed = 1.8; // سرعة التمرير
-
-    function step() {
-        if (!isAutoScrolling) return;
-
-        window.scrollBy(0, scrollSpeed);
-
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-            stopAutoScroll();
-            return;
-        }
-
-        animationFrameId = requestAnimationFrame(step);
-    }
-
-    function startAutoScroll() {
-        if (isAutoScrolling) return;
-        isAutoScrolling = true;
-        step();
-    }
-
-    function stopAutoScroll() {
-        if (isAutoScrolling) {
-            isAutoScrolling = false;
-            cancelAnimationFrame(animationFrameId);
-        }
-    }
-
-    window.addEventListener('wheel', () => stopAutoScroll(), { passive: true });
-    window.addEventListener('touchstart', () => stopAutoScroll(), { passive: true });
-    window.addEventListener('keydown', (e) => {
-        if (['ArrowDown', 'ArrowUp', 'Space', 'PageDown', 'PageUp'].includes(e.code)) {
-            stopAutoScroll();
+}
+ 
+// تأثير القلوب المتساقطة
+function startHeartRain() {
+    const container = document.getElementById('hearts-container');
+    if (!container) return; // القلوب المتساقطة معطلة
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('falling-heart');
+        heart.innerHTML = '𔓘';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
+        container.appendChild(heart);
+ 
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 400);
+}
+ 
+// الظهور التدريجي للعناصر أثناء التمرير (Scroll Reveal)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
         }
     });
+}, { threshold: 0.1 });
+ 
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+ 
+// زر إضافة الموعد للتقويم
+function addToCalendar() {
+    const title = "حنّة ديالا";
+    const details = "تدعوكم والدة العروس منال الزير إلى حنّة ابنتها ديالا";
+    const location = "فندق هوليداي إن الشارقة، قاعة الدانا، الشارقة، الإمارات العربية المتحدة";
+    const startTime = "20261121T193000";
+    const endTime = "20261121T230000";
+ 
+    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&dates=${startTime}/${endTime}`;
+    window.open(googleUrl, '_blank');
+}
+ 
+// عداد الوقت التنازلي
+const targetDate = new Date("November 21, 2026 19:30:00").getTime();
+const countdown = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+ 
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ 
+    if (document.getElementById("days")) {
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
+ 
+    if (distance < 0) {
+        clearInterval(countdown);
+    }
+}, 1000);
+ 
+// ===== التمرير التلقائي (معدّل ليشتغل على الآيفون) =====
+let animationFrameId = null;
+let isAutoScrolling = false;
+let scrollSpeed = 1.8; // سرعة التمرير
+let scrollPos = 0;     // عدّاد تراكمي لأن سفاري بيقرّب القيم العشرية الصغيرة
+ 
+function step() {
+    if (!isAutoScrolling) return;
+ 
+    scrollPos += scrollSpeed;
+    window.scrollTo(0, scrollPos);
+ 
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollPos >= maxScroll - 2) {
+        stopAutoScroll();
+        return;
+    }
+ 
+    animationFrameId = requestAnimationFrame(step);
+}
+ 
+function startAutoScroll() {
+    if (isAutoScrolling) return;
+    scrollPos = window.scrollY;
+    isAutoScrolling = true;
+    step();
+}
+ 
+function stopAutoScroll() {
+    if (isAutoScrolling) {
+        isAutoScrolling = false;
+        cancelAnimationFrame(animationFrameId);
+    }
+}
+ 
+// الإيقاف فقط عند سحب فعلي (أكثر من 10 بكسل) مو عند لمسة عابرة
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+ 
+window.addEventListener('touchmove', (e) => {
+    if (Math.abs(e.touches[0].clientY - touchStartY) > 10) stopAutoScroll();
+}, { passive: true });
+ 
+window.addEventListener('wheel', stopAutoScroll, { passive: true });
+window.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'ArrowUp', 'Space', 'PageDown', 'PageUp'].includes(e.code)) {
+        stopAutoScroll();
+    }
+});
+ 
 </script>
 
 

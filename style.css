@@ -964,44 +964,6 @@ body.no-scroll {
 }
 
 
-/* ===== أوراق الشجر على بطاقة التقويم ===== */
-.calendar-card-leaves {
-  position: relative;
-}
-
-.calendar-card-leaves::before,
-.calendar-card-leaves::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.9;
-  z-index: 0;
-}
-
-.calendar-card-leaves::before {
-  top: -8px;
-  right: -6px;
-  width: 30%;
-  aspect-ratio: 292 / 333;
-  background-image: url("./leaf-tr.png");
-}
-
-.calendar-card-leaves::after {
-  bottom: -8px;
-  left: -6px;
-  width: 32%;
-  aspect-ratio: 397 / 336;
-  background-image: url("./leaf-bl.png");
-}
-
-.calendar-card-leaves > * {
-  position: relative;
-  z-index: 1;
-}
-
-
 /* ===== ورد على أطراف بطاقة الموقع ===== */
 .location-card-flowers {
   position: relative;
@@ -1138,4 +1100,256 @@ span.sec-title {
 @keyframes wreathBreathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
+}
+
+
+/* ===== شاشة الدخول على شكل باب يفتح من النص ===== */
+.welcome-overlay {
+  background: none;
+  overflow: hidden;
+}
+
+.welcome-overlay.fade-out {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: url("./bg-linen.jpg") no-repeat;
+  background-size: 100vw 100vh;
+  transition: transform 1.2s cubic-bezier(0.7, 0, 0.2, 1) 0.2s;
+  z-index: 1;
+}
+
+.door-left {
+  left: 0;
+  background-position: left top;
+  box-shadow: inset -16px 0 20px -12px rgba(0, 0, 0, 0.22);
+}
+
+.door-right {
+  right: 0;
+  background-position: right top;
+  box-shadow: inset 16px 0 20px -12px rgba(0, 0, 0, 0.22);
+}
+
+.welcome-overlay.fade-out .door-left {
+  transform: translateX(-100%);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-overlay.fade-out .door-right {
+  transform: translateX(100%);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-wreath {
+  z-index: 2;
+  transition: opacity 0.5s ease, transform 0.6s ease;
+}
+
+.welcome-overlay.fade-out .welcome-wreath {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+
+/* الباب فقط: بدون دائرة وبدون ورد */
+.welcome-overlay {
+  cursor: pointer;
+}
+
+.door-hint {
+  position: relative;
+  z-index: 2;
+  color: var(--primary-color);
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  transition: opacity 0.4s ease;
+  animation: hintPulse 2.4s ease-in-out infinite;
+}
+
+.welcome-overlay.fade-out .door-hint {
+  opacity: 0;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+
+/* ===== شاشة الدخول: كولاج السجادة والدوائر ===== */
+.welcome-overlay {
+  background: url("./bg-linen.jpg") no-repeat center center / cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.welcome-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cover-stage {
+  --w: min(150vw, 74vh);
+  position: relative;
+  flex: none;
+  width: var(--w);
+  aspect-ratio: 736 / 1308;
+}
+
+.cover-top {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cover-plate {
+  position: absolute;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cover-basket {
+  width: 40.08%;
+  left: 44.77%;
+  top: 23.13%;
+  animation: coverSpin 28s linear infinite;
+}
+
+.cover-left {
+  width: 37.36%;
+  left: 23.03%;
+  top: 51.57%;
+  animation: coverSpin 36s linear infinite reverse;
+}
+
+@keyframes coverSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cover-name {
+  position: absolute;
+  left: 51.77%;
+  top: 50.2%;
+  width: 34%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--primary-color);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cover-title {
+  font-size: calc(var(--w) * 0.095);
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.cover-hint {
+  margin-top: calc(var(--w) * 0.02);
+  font-size: calc(var(--w) * 0.026);
+  animation: hintPulse 2.4s ease-in-out infinite;
+}
+
+
+/* ===== فتح الباب بهدوء عند الضغط ===== */
+.welcome-overlay {
+  background: none;
+}
+
+.welcome-overlay.fade-out {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+}
+
+.door {
+  transition: transform 2s cubic-bezier(0.65, 0, 0.35, 1) 0.5s,
+              box-shadow 1s ease 0.5s;
+}
+
+.cover-stage {
+  z-index: 3;
+  transition: opacity 0.9s ease, transform 1.4s ease;
+}
+
+.welcome-overlay.fade-out .cover-stage {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+
+/* ===== صينية وحدة تدور تحت التقويم ===== */
+.calendar-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-slide::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(320px, 82%);
+  aspect-ratio: 1;
+  background: url("./plate-jute.png") no-repeat center / 100% 100%;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+  animation: plateSpinCentered 40s linear infinite;
+}
+
+@keyframes plateSpinCentered {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.calendar-slide .contain {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: none;
+}
+
+/* ===== أغصان خضر عند العداد ===== */
+.countdown-container {
+  position: relative;
+}
+
+.countdown-container::before,
+.countdown-container::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 2;
+}
+
+.countdown-container::before {
+  top: -26px;
+  right: -14px;
+  width: 30%;
+  aspect-ratio: 292 / 333;
+  background-image: url("./leaf-tr.png");
+}
+
+.countdown-container::after {
+  bottom: -22px;
+  left: -14px;
+  width: 34%;
+  aspect-ratio: 397 / 336;
+  background-image: url("./leaf-bl.png");
 }

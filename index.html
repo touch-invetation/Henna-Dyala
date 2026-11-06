@@ -41,39 +41,16 @@
     <!-- <div id="hearts-container"></div> -->
 
     <!-- صفحة الترحيب الأوليّة -->
-    <div id="welcome-overlay" class="welcome-overlay">
-        <div class="welcome-wreath">
-            <div class="wreath-flowers">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:0deg;--r:165deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:30deg;--r:77deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:60deg;--r:202deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:90deg;--r:333deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:120deg;--r:24deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:150deg;--r:37deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:180deg;--r:274deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:210deg;--r:48deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:240deg;--r:187deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:270deg;--r:298deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:300deg;--r:29deg">
-                <img class="wf big" src="./poppy.png" alt="" style="--a:330deg;--r:259deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:15deg;--r:109deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:45deg;--r:19deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:75deg;--r:44deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:105deg;--r:222deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:135deg;--r:214deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:165deg;--r:35deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:195deg;--r:123deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:225deg;--r:46deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:255deg;--r:282deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:285deg;--r:217deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:315deg;--r:30deg">
-                <img class="wf small" src="./flower-small.png" alt="" style="--a:345deg;--r:289deg">
-            </div>
-            <div class="welcome-circle" onclick="enterInvitation()">
-                <div class="welcome-text">
-                    <h2>حنّة ديالا</h2>
-                </div>
-                <p class="click-hint">اضغط للدخول إلى الدعوة</p>
+    <div id="welcome-overlay" class="welcome-overlay" onclick="enterInvitation()">
+        <div class="door door-left"></div>
+        <div class="door door-right"></div>
+        <div class="cover-stage">
+            <img class="cover-plate cover-basket" src="./plate-basket.png" alt="">
+            <img class="cover-plate cover-left" src="./plate-left.png" alt="">
+            <img class="cover-top" src="./collage-top.png" alt="">
+            <div class="cover-name">
+                <div class="cover-title">حنّة<br>ديالا</div>
+                <div class="cover-hint">اضغط للدخول</div>
             </div>
         </div>
     </div>
@@ -108,7 +85,7 @@
         </div>
 
         <!-- Slide 4 -->
-        <div class="slide-4">
+        <div class="slide-4 calendar-slide">
             <div class="contain reveal calendar-card-leaves">
                 <p class="sec-title">موعد الحنّة</p>
                 <div class="calendar-widget" lang="en" dir="ltr">
@@ -230,9 +207,9 @@
 
     <!-- مشغل يوتيوب مخفي للموسيقى -->
     <div style="display: none;">
-       <iframe id="youtubeAudio"
-        src="https://www.youtube.com/embed/MtnvFP8udZ8?enablejsapi=1&autoplay=0&loop=1&playlist=MtnvFP8udZ8"
-        allow="autoplay"></iframe>
+        <iframe id="youtubeAudio"
+            src="https://www.youtube.com/embed/qNvJnYLaT5s?enablejsapi=1&autoplay=0&loop=1&playlist=qNvJnYLaT5s"
+            allow="autoplay"></iframe>
     </div>
 
 </body>
@@ -266,7 +243,7 @@
 
             setTimeout(() => {
                 welcomeOverlay.style.display = 'none';
-            }, 500);
+            }, 2800);
 
             const video = document.querySelector('.slide-1 video');
             if (video) {
@@ -318,6 +295,7 @@
     // تأثير القلوب المتساقطة
     function startHeartRain() {
         const container = document.getElementById('hearts-container');
+        if (!container) return; // القلوب المتساقطة معطلة
         setInterval(() => {
             const heart = document.createElement('div');
             heart.classList.add('falling-heart');
